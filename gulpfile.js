@@ -42,7 +42,7 @@ gulp.task('watch', ['browser-sync', 'sass', 'compressjs'], () => {
 gulp.task('browser-sync', () => {
     browserSync.init({
         server: {
-            baseDir: 'src/app'
+            baseDir: './'
         }
     })
 })
