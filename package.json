@@ -1,0 +1,23 @@
+{
+  "name": "rowebrannenwedding",
+  "version": "1.0.0",
+  "description": "Jason and Kathleen's Wedding Site",
+  "main": "index.html",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Warning: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rowe-brannen-wedding/rowebrannenwedding.github.io.git"
+  },
+  "author": "Jason Rowe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rowe-brannen-wedding/rowebrannenwedding.github.io/issues"
+  },
+  "homepage": "https://github.com/rowe-brannen-wedding/rowebrannenwedding.github.io#readme"
+}
