@@ -9,19 +9,19 @@ const uglify = composer(uglifyjs, console)
 
 
 gulp.task('compressjs', () => {
-    gulp.src('src/app/js/*.js')
+    gulp.src('js/*.js')
         .pipe(uglify())
         .pipe(rename({
             suffix: '.min'
         }))
-        .pipe(gulp.dest('src/app/js/min'))
+        .pipe(gulp.dest('js/min'))
 })
 
 gulp.task('sass', () => {
-    gulp.src('src/app/styles/*.scss')
+    gulp.src('styles/*.scss')
         .pipe(sass())
         .pipe(clean())
-        .pipe(gulp.dest('src/app/css'))
+        .pipe(gulp.dest('css'))
         .pipe(browserSync.reload({
             stream: true
         }))
@@ -34,9 +34,9 @@ gulp.task('reload', ['sass','compressjs'], () => {
 })
 
 gulp.task('watch', ['browser-sync', 'sass', 'compressjs'], () => {
-    gulp.watch('src/app/styles/*.scss', ['sass', 'reload'])
-    gulp.watch('src/app/js/*.js', ['compressjs', 'reload'])
-    gulp.watch('src/app/**/*.html', ['reload'])
+    gulp.watch('styles/*.scss', ['sass', 'reload'])
+    gulp.watch('js/*.js', ['compressjs', 'reload'])
+    gulp.watch('./**/*.html', ['reload'])
 })
 
 gulp.task('browser-sync', () => {
