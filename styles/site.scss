@@ -84,19 +84,3 @@ html {
     background: rgba(0,0,0,0.5);
 }
 
-@media screen and (max-width: $break-mobile) {
-    html {
-        background: url('../resources/background-480.png') no-repeat center center fixed;
-        background-size: cover;
-        overflow: hidden;
-    }
-}
-
-@media screen and (min-width: $break-mobile) and (max-width: $break-small) {
-    html {
-        background: url('../resources/background-960.png') no-repeat center center fixed;
-        background-size: cover;
-        overflow: hidden;
-    }
-}
-
