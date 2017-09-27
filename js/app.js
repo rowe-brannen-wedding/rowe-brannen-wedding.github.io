@@ -36,12 +36,7 @@ app.setBg = function() {
 
     }
 
-    // Determine whether width or height should be 100%
-    if ((win_h / win_w) > 1) {
-      $bg.css({height: win_h + 60, width: 'auto'});
-    } else {
-      $bg.css({width: win_w + 60, height: 'auto'});
-    }
+    $bg.css({height: win_h + 180, width: 'auto'});
 
 }
 
@@ -54,4 +49,5 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
     $("#bg").attr('src', '../resources/background-1920.png');
 }
 
-$(window).on('resize', app.setBg())
+$(window).on('resize', () => {app.setBg()})
+screen.onorientationchange = () => {app.setBg()}
