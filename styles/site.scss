@@ -5,6 +5,11 @@ $break-large: 1280px;
 $break-small: 960px;
 $break-mobile: 480px;
 
+#bg {
+    position: fixed;
+    left: 0;
+    top: 0;
+}
 
 body {
     margin: 0;
@@ -21,8 +26,8 @@ body {
 }
 
 html {
-    background: url('../resources/background-1920.png') no-repeat center center fixed;
-    background-size: cover;
+//     background: url('../resources/background-1920.png') no-repeat center center fixed;
+//     background-size: cover;
     overflow: hidden;
 }
 
