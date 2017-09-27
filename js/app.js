@@ -53,3 +53,5 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
 } else {
     $("#bg").attr('src', '../resources/background-1920.png');
 }
+
+$(window).on('resize', app.setBg())
