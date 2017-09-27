@@ -67,7 +67,7 @@ html {
     font-size: 200%;
 }
 
-.under-construction {
+#under-construction {
     @extend .sub-heading;
     margin-top: 96px;
     font: 400% 'Open Sans Condensed', $font-stack;
