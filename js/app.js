@@ -51,5 +51,5 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
     document.getElementById("under-construction").innerHTML = "Thanks for visiting from a mobile browser!"
     app.setBg()
 } else {
-    $bg.attr('src', '../resources/background-1920.png');
+    $("#bg").attr('src', '../resources/background-1920.png');
 }
