@@ -32,7 +32,7 @@ app.setBg = () => {
   $bg.attr('src', '../resources/background-' + chosen + '.png')
 
   // for testing...
-  document.getElementById("under-construction").innerHTML = 'Chosen background: ' + chosen;
+  // document.getElementById("under-construction").innerHTML = 'Chosen background: ' + chosen;
 
   let adjustedImageWidth = ((win_h + 180) * 16)/10
   let sideAdjustment = Math.abs((adjustedImageWidth - window.innerWidth) / 2)
