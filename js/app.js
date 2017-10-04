@@ -2,52 +2,62 @@ const app = {}
 
 app.description = 'Jason and Kathleen\'s Wedding Site!'
 
-app.setBg = function() {
-    var win = $(window);
-    var win_w = win.width(),
-        win_h = win.height(),
-        $bg    = $("#bg");
+app.setBg = () => {
 
-    // Load narrowest background image based on 
-    // viewport width, but never load anything narrower 
-    // that what's already loaded if anything.
-    var available = [
-      480, 960, 1280, 1440, 1920
-    ];
+  let win = $(window);
+  let win_w = win.width(),
+    win_h = win.height(),
+    $bg = $("#bg");
 
-    var current = $bg.attr('src').match(/([0-9]+)/) ? RegExp.$1 : null;
+  // Load narrowest background image based on 
+  // viewport width, but never load anything narrower 
+  // that what's already loaded if anything.
+  let available = [
+    480, 960, 1280, 1440, 1920
+  ]
 
-    if (!current || ((current < win_w) && (current < available[available.length - 1]))) {
+  let current = $bg.attr('src').match(/([0-9]+)/) ? RegExp.$1 : null
+  let chosen
 
-      var chosen = available[available.length - 1];
+  chosen = available[available.length - 1]
 
-      for (var i=0; i<available.length; i++) {
-        if (available[i] >= win_w) {
-          chosen = available[i];
-          break;
-        }
-      }
-
-      // Set the new image
-      $bg.attr('src', '../resources/background-' + chosen + '.png');
-
-      // for testing...
-      setTimeout(() => {document.getElementById("under-construction").innerHTML = 'Chosen background: ' + chosen;},5000)
-
+  for (let i = 0; i < available.length; i++) {
+    if (available[i] >= win_w) {
+      chosen = available[i]
+      break
     }
+  }
 
-    $bg.css({height: win_h + 180, width: 'auto'});
+  // Set the new image
+  $bg.attr('src', '../resources/background-' + chosen + '.png')
+
+  // for testing...
+  document.getElementById("under-construction").innerHTML = 'Chosen background: ' + chosen;
+
+  let adjustedImageWidth = ((win_h + 180) * 16)/10
+  let sideAdjustment = Math.abs((adjustedImageWidth - window.innerWidth) / 2)
+
+  $bg.css({
+    minHeight: win_h + 180,
+    // position: 'absolute',
+    margin: 'auto',
+    left: -sideAdjustment + 'px',
+    right: -sideAdjustment + 'px',
+    top: 0,
+  })
 
 }
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-//     document.body.style.background = "url('../resources/background-480.png') no-repeat center center fixed"
-    // document.body.style.height = "100vh"
-    document.getElementById("under-construction").innerHTML = "Thanks for visiting from a mobile browser!"
-    app.setBg()
+  document.getElementById("under-construction").innerHTML = "Thanks for visiting from a mobile browser!"
+  app.setBg()
 } else {
-    $("#bg").attr('src', '../resources/background-1920.png');
+  app.setBg()
 }
 
-$(window).on('resize', () => {app.setBg()})
-screen.onorientationchange = () => {app.setBg()}
+$(window).resize(() => {
+  app.setBg()
+})
+screen.onorientationchange = () => {
+  app.setBg()
+}
