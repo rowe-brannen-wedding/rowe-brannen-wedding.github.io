@@ -29,7 +29,7 @@ app.setBg = () => {
   }
 
   // Set the new image
-  $bg.attr('src', '../resources/background-' + chosen + '.png')
+  $bg.attr('src', '../resources/background-' + chosen + '.jpg')
 
   // for testing...
   // document.getElementById("under-construction").innerHTML = 'Chosen background: ' + chosen;
