@@ -1,8 +1,4 @@
-const app = {}
-
-app.description = 'Jason and Kathleen\'s Wedding Site!'
-
-app.setBg = () => {
+function setBg() {
 
   let win = $(window);
   let win_w = win.width(),
@@ -34,7 +30,7 @@ app.setBg = () => {
   // for testing...
   // document.getElementById("under-construction").innerHTML = 'Chosen background: ' + chosen;
 
-  let adjustedImageWidth = ((win_h + 180) * 16)/10
+  let adjustedImageWidth = ((win_h + 180) * 16) / 10
   let sideAdjustment = Math.abs((adjustedImageWidth - window.innerWidth) / 2)
 
   $bg.css({
@@ -49,15 +45,57 @@ app.setBg = () => {
 }
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-  document.getElementById("under-construction").innerHTML = "Thanks for visiting from a mobile browser!"
-  app.setBg()
+  // document.getElementById("under-construction").innerHTML = "Thanks for visiting from a mobile browser!"
+  setBg()
 } else {
-  app.setBg()
+  setBg()
 }
 
 $(window).resize(() => {
-  app.setBg()
+  setBg()
 })
 screen.onorientationchange = () => {
-  app.setBg()
+  setBg()
+}
+
+appViewModel = function () {
+  const self = this
+  self.description = 'Jason and Kathleen\'s Wedding Site!'
+  self.currentPage = ko.observable('HOME')
+  self.content = ko.observable()
+
+  self.links = ko.observableArray([
+    'HOME',
+    'WELCOME',
+    'OUR STORY',
+    'WEDDING PARTY',
+    'VENUES',
+    'ACCOMODATIONS',
+    'THINGS TO DO',
+    'REGISTRY',
+    'PHOTOS'
+  ])
+
+  self.handleNav = function (target) {
+    self.currentPage(target)
+    target = target.toLowerCase().replace(/ /g,'')
+    jQuery.get(`pages/${target}.html`).then(data => {
+      self.content(data)
+    })
+  }
+}
+
+ko.bindingHandlers.dynamicHtml = {
+  'init': function () {
+      return {
+          controlsDescendantBindings: true
+      }
+  },
+  'update': function (element, valueAccessor, allBindings, viewModel, bindingContext) {
+      let value = ko.utils.unwrapObservable(valueAccessor())
+      ko.applyBindingsToNode(element, {
+          html: value
+      })
+      ko.applyBindingsToDescendants(bindingContext, element)
+  }
 }
