@@ -1,4 +1,4 @@
-$primary-dark: #333;
+    $primary-dark: #333;
 $primary-light: #f8f8f8;
 $font-stack: Helvetica,
 sans-serif;
@@ -26,57 +26,84 @@ body {
     padding-top: 28px;
     display: flex;
     flex-direction: column;
-    .container {
-        margin: 0 25%;
-        word-wrap: normal;
-        .sub {
-            margin: 32px 0;
+    .welcome {
+        &.container {
+            margin: 0 32%;
+            word-wrap: normal;
+            .sub {
+                margin: 32px 0;
+                &.text {
+                    background-color: rgba(0, 0, 0, 0.5);
+                    padding: 10px;
+                }
+            }
         }
     }
-    .photo-container {
-        flex: 1;
-        padding: 24px 25%;
-        .photo {
-            padding: 10px;
-            height: 90%;
-            background-image: url('../img/DSC03167e.jpg');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-origin: content-box;
-            box-shadow: 0 0 24px 12px $primary-light inset, 0 0 8px 8px $primary-light;
+    .home {
+        &.photo-container {
+            flex: 1;
+            padding: 24px 25%;
+            .photo {
+                padding: 10px;
+                height: 90%;
+                background-image: url('../img/DSC03167e.jpg');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-origin: content-box;
+                box-shadow: 0 0 24px 12px $primary-light inset, 0 0 8px 8px $primary-light;
+            }
         }
     }
-    .our-story-container {
-        margin: -200px 25%;
-        word-wrap: normal;
-        padding: 25px 0;
+    .our-story {
+        &.container {
+            word-wrap: normal;
+            overflow: auto;
+            margin: 32px 28%;
+            padding: 0 5px;
+            .text {
+                background-color: rgba(0, 0, 0, 0.5);
+                padding: 10px;
+            }
+        }
+        &.photo-container {
+            display: flex;
+            height: 45%;
+            margin: 0 2.5%;
+            .photo {
+                flex-basis: 25%;
+                justify-content: space-around;
+                height: 100%;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-origin: content-box;
+                background-size: cover;
+                box-shadow: 0 0 24px 12px $primary-light inset, 0 0 8px 8px $primary-light;
+            }
+             :nth-child(1) {
+                background-image: url('../img/DSC03061e.jpg');
+            }
+             :nth-child(2) {
+                background-image: url('../img/DSC03064e.jpg');
+            }
+             :nth-child(3) {
+                background-image: url('../img/DSC03066e.jpg');
+            }
+             :nth-child(4) {
+                background-image: url('../img/DSC03073e.jpg');
+            }
+        }
     }
-    .our-story-photo-container {
-        flex: 1;
-        padding: 0 2.5% 200px 2.5%;
-        display: flex;
-        height: 100%;
-        .our-story-photo {
-            flex-basis: 25%;
-            padding: 10px;
-            height: 90%;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-origin: content-box;
-            background-size: cover;
-            box-shadow: 0 0 24px 12px $primary-light inset, 0 0 8px 8px $primary-light;
-        }
-        :nth-child(1) {
-            background-image: url('../img/DSC03061e.jpg');
-        }
-        :nth-child(2) {
-            background-image: url('../img/DSC03064e.jpg');
-        }
-        :nth-child(3) {
-            background-image: url('../img/DSC03066e.jpg');
-        }
-        :nth-child(4) {
-            background-image: url('../img/DSC03073e.jpg');
+    .weddingparty,
+    .venues,
+    .accomodations,
+    .thingstodo,
+    .registry {
+        &.container {
+            background-color: rgba(0, 0, 0, 0.5);
+            word-wrap: normal;
+            overflow: auto;
+            margin: 0 30%;
+            padding: 0 15px;
         }
     }
 }
@@ -92,6 +119,23 @@ html {
     font: 600% 'Great Vibes', $font-stack;
     color: $primary-light;
     text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.6);
+}
+
+.gallery {
+    line-height: 0;
+    column-count: 3;
+    margin: 0 20%;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+    .thumb {
+        img {
+            max-height: 100%;
+            max-width: 100%;
+            padding: 5px;
+        }
+        cursor: pointer;
+    }
 }
 
 .navigation-container {
@@ -139,6 +183,16 @@ html {
     color: $primary-light;
     font: 150% 'Open Sans Condensed', $font-stack;
     text-shadow: 2px 2px 3px rgba(0, 0, 0, 1);
+    a {
+        text-decoration: none;
+        color: currentColor;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    strong {
+        font-size: 120%;
+    }
 }
 
 #under-construction {
@@ -156,10 +210,10 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.9);
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.9);
+    box-shadow: inset 0 0 6px rgba(200, 200, 200, 0.5);
+    -webkit-box-shadow: inset 0 0 6px rgba(200, 200, 200, 0.5);
     border-radius: 10px;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.01);
 }
 
 @media all and (max-width: $break-mobile) {
@@ -174,11 +228,14 @@ html {
             padding: 24px 10%;
         }
     }
+    .gallery {
+        column-count: 1;
+    }
 }
 
-@media all and (max-width: $break-small) and (min-width: $break-mobile) {
+@media screen and (max-width: $break-small) and (min-width: $break-mobile) {
     .heading {
-        font-size: 475%;
+        font-size: 350%;
     }
     .sub-heading {
         font-size: 50%;
@@ -186,6 +243,19 @@ html {
     #content {
         .photo-container {
             padding: 24px 10%;
+        }
+        .welcome {
+            &.container {
+                margin: 0 10%;
+            }
+        }
+        .our-story {
+            &.container {
+                margin: 32px 10% !important;
+            }
+        }
+        .gallery {
+            column-count: 2;
         }
     }
 }

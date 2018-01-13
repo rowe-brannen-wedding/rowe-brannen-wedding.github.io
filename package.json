@@ -11,6 +11,7 @@
     "gulp-clean-css": "^3.9.0",
     "gulp-rename": "latest",
     "gulp-sass": "^3.1.0",
+    "photoswipe": "^4.1.2",
     "gulp-uglify": "latest",
     "uglify-es": "latest"
   },
