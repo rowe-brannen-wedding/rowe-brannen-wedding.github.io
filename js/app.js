@@ -226,9 +226,10 @@ appViewModel = function () {
   ])
   self.narrow = ko.observable(window.innerWidth < 1280)
   self.badBrowser = ko.observable(detectIE())
-  if (self.badBrowser()) {
-    $('.bad-browser-message').css('display', 'block')
-  }
+  // if (self.badBrowser()) {
+  //   console.log('bad browser')
+  //   $('.bad-browser-message').css('display', 'block')
+  // }
 
   self.links = ko.observableArray([
     'HOME',
