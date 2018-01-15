@@ -20,8 +20,13 @@
         </ul>
     </div>
     <!-- Main Header -->
-    <div id="content" data-bind="dynamicHtml: vm.content">
+    <div data-bind="if: !vm.badBrowser()">
+        <div id="content" data-bind="dynamicHtml: vm.content">
 
+        </div>
+    </div>
+    <div data-bind="if: vm.badBrowser()">
+        <h1>Your browser is not supported. Please visit using Google Chrome or Mozilla Firefox.</h1>
     </div>
 </body>
 <link href="css/site.css?v=1.0" rel="stylesheet" type="text/css" />
