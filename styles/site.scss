@@ -16,6 +16,15 @@ body {
     height: 100%;
 }
 
+h1 {
+    margin-top: .2em;
+    .bad-browser-message {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
 #content {
     position: absolute;
     top: 50px;
