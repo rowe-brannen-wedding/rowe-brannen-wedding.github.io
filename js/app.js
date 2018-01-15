@@ -67,72 +67,72 @@ appViewModel = function () {
   self.content = ko.observable()
   self.photoGallery = ko.observableArray([
     {
-      src:'img/DSC03048e.jpg',
+      src: 'img/DSC03048e.jpg',
       w: 1024,
       h: 1536
     },
     {
-      src:'img/DSC03057e.jpg',
+      src: 'img/DSC03057e.jpg',
       w: 1024,
       h: 683
     },
     {
-      src:'img/DSC03061e.jpg',
+      src: 'img/DSC03061e.jpg',
       w: 1024,
       h: 683
     },
     {
-      src:'img/DSC03064e.jpg',
+      src: 'img/DSC03064e.jpg',
       w: 1024,
       h: 683
     },
     {
-      src:'img/DSC03066e.jpg',
+      src: 'img/DSC03066e.jpg',
       w: 1024,
       h: 683
     },
     {
-      src:'img/DSC03073e.jpg',
+      src: 'img/DSC03073e.jpg',
       w: 1024,
       h: 683
     },
     {
-      src:'img/DSC03078e.jpg',
+      src: 'img/DSC03078e.jpg',
       w: 1024,
       h: 1536
     },
     {
-      src:'img/DSC03155e.jpg',
+      src: 'img/DSC03155e.jpg',
       w: 1024,
       h: 1536
     },
     {
-      src:'img/DSC03167e.jpg',
+      src: 'img/DSC03167e.jpg',
       w: 1024,
       h: 819
     },
     {
-      src:'img/DSC03196e.jpg',
+      src: 'img/DSC03196e.jpg',
       w: 1024,
       h: 819
     },
     {
-      src:'img/DSC03229e.jpg',
+      src: 'img/DSC03229e.jpg',
       w: 1024,
       h: 1280
     },
     {
-      src:'img/DSC03254e.jpg',
+      src: 'img/DSC03254e.jpg',
       w: 1024,
       h: 1536
     },
     {
-      src:'img/DSC03280e.jpg',
+      src: 'img/DSC03280e.jpg',
       w: 1024,
       h: 1536
     },
     {
-      src:'img/DSC03313e.jpg',
+      src: 'img/DSC03313e.jpg',
       w: 1024,
       h: 819
     },
@@ -197,6 +197,7 @@ appViewModel = function () {
       h: 1504
     }
   ])
+  self.narrow = ko.observable(window.innerWidth < 1280)
 
   self.links = ko.observableArray([
     'HOME',
@@ -215,17 +216,24 @@ appViewModel = function () {
     target = target.toLowerCase().replace(/ /g, '')
     jQuery.get(`pages/${target}.html`).then(data => {
       self.content(data)
+      if (target === 'photos') {
+        [].forEach.call(document.querySelectorAll('img[data-src]'), function (img) {
+          img.setAttribute('src', img.getAttribute('data-src'))
+          img.onload = function () {
+            img.removeAttribute('data-src')
+          }
+        })
+      }
     })
   }
 
-  self.initializePswipe = function(data, event) {
+  self.initializePswipe = function (data, event) {
     const context = ko.contextFor(event.target)
     const index = context.$index()
     const root = document.querySelectorAll('.pswp')[0]
     const options = {
       index: index,
-      captionEl: false,
-      
+      captionEl: false
     }
     const gallery = new PhotoSwipe(root, PhotoSwipeUI_Default, self.photoGallery(), options)
     gallery.init()

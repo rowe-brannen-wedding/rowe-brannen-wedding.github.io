@@ -1,6 +1,6 @@
 <div class="gallery" data-bind="foreach: vm.photoGallery">
     <a class="thumb" data-bind="click: vm.initializePswipe.bind($data)">
-        <img data-bind="attr: {src: src}, style: {height: h/4, width: w/4}">
+        <img data-bind="attr: {'data-src': src}">
     </a>
 </div>
 
