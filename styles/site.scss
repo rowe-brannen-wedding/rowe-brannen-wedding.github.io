@@ -150,14 +150,13 @@ html {
     line-height: 0;
     column-count: 3;
     margin: 0 20%;
-    padding: 5px;
+    padding: 15px;
     background-color: rgba(0, 0, 0, 0.5);
-    overflow: auto;
     .thumb {
         img {
             max-height: 100%;
             max-width: 100%;
-            padding: 5px;
+            padding: 5px 0;
         }
         cursor: pointer;
     }
