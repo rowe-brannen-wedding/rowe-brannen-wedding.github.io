@@ -275,6 +275,8 @@ html {
             width: 80%;
             font: 22px 'Open Sans Condensed', $font-stack;
             color: $primary-light;
+            background: transparent;
+            border: none;
         }
     }  
     .gallery {
