@@ -28,11 +28,11 @@
             </li>
             <!-- /ko -->
         </ul>
-        <div>
+        <div data-bind="visible: vm.mobile()">
             <span>
                 &#9660;
             </span>
-            <select data-bind="visible: vm.mobile(), options: links, value: mobileNavMenuSelection">
+            <select data-bind="options: links, value: mobileNavMenuSelection">
             </select>
         </div>
     </div>
