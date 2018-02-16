@@ -30,7 +30,6 @@ h1 {
     top: 50px;
     left: 0;
     right: 0;
-    overflow: auto;
     height: calc(100vh - 78px);
     padding-top: 28px;
     display: flex;
@@ -39,15 +38,15 @@ h1 {
         &.container {
             margin: 0 32%;
             word-wrap: normal;
+            overflow: auto;
             .sub {
-                margin: 32px 0;
                 &.text {
                     background-color: rgba(0, 0, 0, 0.5);
                     padding: 10px;
                 }
             }
             &.narrow {
-                margin: 0 5%;
+                margin: 32px 5%;
             }
         }
     }
@@ -151,6 +150,7 @@ html {
     margin: 0 20% 32px;
     padding: 15px;
     background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
     .thumb {
         img {
             max-height: 100%;
@@ -271,11 +271,12 @@ html {
             background: transparent;
         }
         select {
-            height: 50px;
-            width: 80%;
+            height: 30px;
+            width: calc(100vw - 20px);
             font: 22px 'Open Sans Condensed', $font-stack;
             color: $primary-dark;
             border: none;
+            margin-top: 10px;
         }
     }  
     .gallery {
