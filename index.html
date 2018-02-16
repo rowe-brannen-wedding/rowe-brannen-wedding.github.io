@@ -17,17 +17,24 @@
 </head>
 <title>Rowe-Brannen Wedding</title>
 
-<body>
+<body id="body">
     <img id="bg" src="" />
     <!-- Navigation -->
     <div class="navigation-container">
-        <ul id="navigation-links">
+        <ul id="navigation-links" data-bind="visible: !vm.mobile()">
             <!-- ko foreach: links -->
             <li>
                 <a data-bind="text: $data, click: vm.handleNav.bind($data, $data), css: {underline: $data === vm.currentPage()}"></a>
             </li>
             <!-- /ko -->
         </ul>
+        <div data-bind="visible: vm.mobile()">
+            <span>
+                &#9660;
+            </span>
+            <select data-bind="options: links, value: mobileNavMenuSelection">
+            </select>
+        </div>
     </div>
     <!-- Main Header -->
     <div id="content" data-bind="dynamicHtml: vm.content">

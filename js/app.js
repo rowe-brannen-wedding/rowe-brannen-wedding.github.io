@@ -4,7 +4,10 @@ function setBg() {
   let win_w = win.width(),
     win_h = win.height(),
     $bg = $("#bg");
-
+  let body = document.getElementById('body')
+  let scale = window.devicePixelRatio
+  body.width = window.innerWidth * scale
+  body.height = window.innerHeight * scale
   // Load narrowest background image based on 
   // viewport width, but never load anything narrower 
   // that what's already loaded if anything.
@@ -13,9 +16,7 @@ function setBg() {
   ]
 
   let current = $bg.attr('src').match(/([0-9]+)/) ? RegExp.$1 : null
-  let chosen
-
-  chosen = available[available.length - 1]
+  let chosen = available[available.length - 1]
 
   for (let i = 0; i < available.length; i++) {
     if (available[i] >= win_w) {
@@ -35,7 +36,6 @@ function setBg() {
 
   $bg.css({
     minHeight: win_h + 180,
-    // position: 'absolute',
     margin: 'auto',
     left: -sideAdjustment + 'px',
     right: -sideAdjustment + 'px',
@@ -63,7 +63,8 @@ screen.onorientationchange = () => {
 appViewModel = function () {
   const self = this
   self.description = 'Jason and Kathleen\'s Wedding Site!'
-  self.currentPage = ko.observable('HOME')
+  self.currentPage = ko.observable()
+  self.mobileNavMenuSelection = ko.observable()
   self.content = ko.observable()
   self.photoGallery = ko.observableArray([
     {
@@ -198,6 +199,7 @@ appViewModel = function () {
     }
   ])
   self.narrow = ko.observable(window.innerWidth < 1280)
+  self.mobile = ko.observable(window.innerWidth < 480)
 
   self.links = ko.observableArray([
     'HOME',
@@ -210,6 +212,10 @@ appViewModel = function () {
     'REGISTRY',
     'PHOTOS'
   ])
+
+  self.mobileNavMenuSelection.subscribe(newValue => {
+    self.handleNav(newValue)
+  })
 
   self.handleNav = function (target) {
     self.currentPage(target)
