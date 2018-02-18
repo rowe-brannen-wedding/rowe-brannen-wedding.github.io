@@ -36,7 +36,7 @@ h1 {
     flex-direction: column;
     .welcome {
         &.container {
-            margin: 0 32%;
+            margin: 32px 30%;
             word-wrap: normal;
             overflow: auto;
             .sub {
@@ -72,13 +72,13 @@ h1 {
         &.container {
             word-wrap: normal;
             overflow: auto;
-            margin: 32px 28%;
+            margin: 32px 30%;
             .text {
                 background-color: rgba(0, 0, 0, 0.5);
                 padding: 10px;
             }
             &.narrow {
-                margin: 0 5% 32px;
+                margin: 32px 5%;
             }
         }
         &.photo-container {
@@ -107,6 +107,9 @@ h1 {
              :nth-child(4) {
                 background-image: url('../img/DSC03073e.jpg');
             }
+            &.narrow {
+                height: 25%;
+            }
         }
     }
     .weddingparty,
@@ -118,7 +121,7 @@ h1 {
             background-color: rgba(0, 0, 0, 0.5);
             word-wrap: normal;
             overflow: auto;
-            margin: 0 30%;
+            margin: 0 30% 32px;
             padding: 0 15px;
             &.narrow {
                 margin: 0 5% 32px;
@@ -147,7 +150,7 @@ html {
 .gallery {
     line-height: 0;
     column-count: 3;
-    margin: 0 20% 32px;
+    margin: 0 15% 32px;
     padding: 15px;
     background-color: rgba(0, 0, 0, 0.5);
     overflow: auto;
@@ -166,11 +169,12 @@ html {
     background: rgba(0, 0, 0, 0.35);
     position: absolute;
     left: 0;
-    right: 0;
     top: 0;
     height: 50px;
+    width: 100vw;
     user-select: none;
     ul {
+        -webkit-padding-start: 0;
         list-style-type: none;
         margin: 0;
         white-space: nowrap;
@@ -229,7 +233,7 @@ html {
 }
 
 ::-webkit-scrollbar {
-    width: 12px;
+    width: 0;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -253,8 +257,13 @@ html {
         .home.photo-container {
             padding: 24px 5%;
         }
-        .our-story.photo-container {
-            display: none;
+        .our-story {
+            &.photo-container {
+                display: none;
+            }
+            &.container.narrow {
+                margin: 0 5% 32px;
+            }
         }
     }
     .navigation-container {
@@ -293,7 +302,14 @@ html {
         font-size: 50%;
     }
     .gallery {
-        column-count: 1;
+        column-count: 2;
+        margin: 0 10% 32px;
+    }
+    .navigation-container {
+        ul li {
+            font-size: 18px;
+            margin-right: 8px;
+        }
     }
 }
 
