@@ -198,6 +198,33 @@ appViewModel = function () {
       h: 1504
     }
   ])
+  self.bridalParty = ko.observableArray([
+    {
+      title: 'Sam Sox - Matron of Honor',
+      img: 'img/sam.png',
+      desc: 'Sam and Kathleen have been friends since their days at Lexington Catholic High School. Sam gave Kathleen the infamous KB nickname that has now followed her through high school, college, and beyond. Sam, Kaitlyn, and Kathleen have been the The Three Musketeers since they met 10 years ago (literally, they dressed up as Three Musketeers for Halloween).'
+    }, {
+      title: 'Kaitlyn Russo (Kurr) - Maid of Honor',
+      img: 'img/kurr.jpg',
+      desc: 'Kaitlyn is better known by her nicknames of Kurr, Kurdles, or Kurr Kurr. This spunky young woman has had Kathleen laughing ever since they met in the gym of Lexington Catholic High School over 10 years ago. Kurr has always added spice and adventure to the friendship of The Three Musketeers.'
+    }, {
+      title: 'Maria Tonry',
+      img: 'img/maria.png',
+      desc: 'Maria and Kathleen met at Butler University and have been friends ever since. They spent many nights at college procrastinating homework by indulging in the infamous “Wine and Artichoke Nights”. Whether it was weekend shenanigans or supporting each other on their much dreaded running workouts, KB and Maria have always been there for each other.'
+    }, {
+      title: 'Neal Tardy - Best Man',
+      img: 'img/neal.jpg',
+      desc: ''
+    }, {
+      title: 'Ben Rowe',
+      img: 'img/ben.jpg',
+      desc: ''
+    }, {
+      title: 'Andy Rowe',
+      img: 'img/andy.png',
+      desc: ''
+    }
+  ])
   self.narrow = ko.observable(window.innerWidth < 1280)
   self.mobile = ko.observable(window.innerWidth < 480)
 

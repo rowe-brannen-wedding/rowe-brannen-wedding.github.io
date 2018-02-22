@@ -1,5 +1,13 @@
-<div class="weddingparty container" data-bind="css: {narrow: vm.narrow()}">
+<div class="wedding-party container" data-bind="css: {narrow: vm.narrow()}">
     <div class="text">
-        <p>Coming soon!</p>
+        <!-- ko foreach: bridalParty -->
+        <p class="bridal-party-name-title">
+            <strong data-bind="text: title"></strong>
+        </p>
+        <div class="bridal-party-image">
+            <img data-bind="attr: {src: img}">
+        </div>
+        <div class="bridal-party-description" data-bind="text: desc"></div>
+        <!-- /ko -->
     </div>
 </div>
