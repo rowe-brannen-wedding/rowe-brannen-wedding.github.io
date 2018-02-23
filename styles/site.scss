@@ -112,7 +112,7 @@ h1 {
             }
         }
     }
-    .weddingparty,
+    .wedding-party,
     .venues,
     .accomodations,
     .thingstodo,
@@ -230,6 +230,29 @@ html {
 
 .underline {
     text-decoration: underline !important;
+}
+
+.bridal-party-name-title {
+    font-weight: bold;
+}
+
+.bridal-party-image {
+    img {
+        max-width: 100%;
+        width: -webkit-fill-available;
+        width: -moz-available;
+        width: 100%;
+    }
+}
+
+.bridal-party-description {
+    margin-bottom: 32px;
+}
+
+select {
+    &:focus {
+        outline: none;
+    }
 }
 
 ::-webkit-scrollbar {
