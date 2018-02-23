@@ -214,15 +214,15 @@ appViewModel = function () {
     }, {
       title: 'Neal Tardy - Best Man',
       img: 'img/neal.jpg',
-      desc: ''
+      desc: 'Neal and Jason grew up playing baseball and soccer together, then cemented their friendship through the trials and tribulations of Boy Scouts and the Firecrafter program. Survivors of many interesting nights in college, Neal and Jason have been there for each other through many of their hardest and finest moments.'
     }, {
       title: 'Ben Rowe',
       img: 'img/ben.jpg',
-      desc: ''
+      desc: 'Ben and Jason\'s relationship has come a long way from the days when Ben would solve the problem of the annoying little brother by sitting on him. Jason has (literally) always looked up to Ben, from baseball to school to scouts, and couldn\'t have asked for a better oldest brother (even if it did mean getting squished sometimes).'
     }, {
       title: 'Andy Rowe',
       img: 'img/andy.png',
-      desc: ''
+      desc: 'Andy and Jason didn\'t seem to have much in common when they were younger, besides a love of soccer. As they\'ve gotten older and started their adult lives, they\'ve grown closer as they\'ve discovered a few more shared insterests; most notably, an affinity for Kentucky\'s bourbon and horse racing.'
     }
   ])
   self.narrow = ko.observable(window.innerWidth < 1280)
