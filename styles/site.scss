@@ -222,6 +222,19 @@ html {
     }
 }
 
+.registry-logos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    a {
+        width: 33.333%;
+        padding: 1%;
+        img {
+            max-width: 100%;
+        }
+    }
+}
+
 #under-construction {
     @extend .sub-heading;
     margin-top: 96px;
