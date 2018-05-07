@@ -26,7 +26,7 @@
         <ul id="navigation-links" data-bind="visible: !vm.mobile()">
             <!-- ko foreach: links -->
             <li>
-                <a data-bind="text: $data, css: {underline: $data === vm.currentPage()}, attr: {href: '#/' + $data}"></a>
+                <a data-bind="text: $data, css: {underline: $data.toLowerCase().replace(/ /g,'') === vm.currentPage()}, attr: {href: '#/' + $data}"></a>
             </li>
             <!-- /ko -->
         </ul>

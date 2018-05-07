@@ -15,7 +15,6 @@ gulp.task('compressjs', () => {
             suffix: '.min'
         }))
         .pipe(gulp.dest('js/min'))
-        .pipe(browserSync.reload())
 })
 
 gulp.task('sass', () => {
