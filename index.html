@@ -18,7 +18,7 @@
     <link rel="icon" href="resources/favicon.ico" />
     <title>Rowe-Brannen Wedding</title>
 </head>
-    
+
 <body id="body">
     <img id="bg" src="" />
     <!-- Navigation -->
@@ -26,7 +26,7 @@
         <ul id="navigation-links" data-bind="visible: !vm.mobile()">
             <!-- ko foreach: links -->
             <li>
-                <a data-bind="text: $data, click: vm.handleNav.bind($data, $data), css: {underline: $data === vm.currentPage()}"></a>
+                <a data-bind="text: $data, css: {underline: $data === vm.currentPage()}, attr: {href: '#/' + $data}"></a>
             </li>
             <!-- /ko -->
         </ul>
