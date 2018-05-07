@@ -191,6 +191,7 @@ html {
             a {
                 color: $primary-light;
                 text-decoration: none;
+                text-transform: uppercase;
                 line-height: 50px;
                 &:hover {
                     cursor: pointer;

@@ -28,9 +28,6 @@ function setBg() {
   // Set the new image
   $bg.attr('src', '../resources/background-' + chosen + '.jpg')
 
-  // for testing...
-  // document.getElementById("under-construction").innerHTML = 'Chosen background: ' + chosen;
-
   let adjustedImageWidth = ((win_h + 180) * 16) / 10
   let sideAdjustment = Math.abs((adjustedImageWidth - window.innerWidth) / 2)
 
@@ -44,14 +41,7 @@ function setBg() {
 
 }
 
-
-
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-  // document.getElementById("under-construction").innerHTML = "Thanks for visiting from a mobile browser!"
-  setBg()
-} else {
-  setBg()
-}
+setBg()
 
 $(window).resize(() => {
   setBg()
@@ -229,15 +219,15 @@ appViewModel = function () {
   self.mobile = ko.observable(window.innerWidth < 480)
 
   self.links = ko.observableArray([
-    'HOME',
-    'WELCOME',
-    'OUR STORY',
-    'WEDDING PARTY',
-    'VENUES',
-    'ACCOMODATIONS',
-    'THINGS TO DO',
-    'REGISTRY',
-    'PHOTOS'
+    'Home',
+    'Welcome',
+    'Our Story',
+    'Wedding Party',
+    'Venues',
+    'Accomodations',
+    'Things To Do',
+    'Registry',
+    'Photos'
   ])
 
   self.mobileNavMenuSelection.subscribe(newValue => {
@@ -266,7 +256,8 @@ appViewModel = function () {
     const root = document.querySelectorAll('.pswp')[0]
     const options = {
       index: index,
-      captionEl: false
+      captionEl: false,
+      history: false
     }
     const gallery = new PhotoSwipe(root, PhotoSwipeUI_Default, self.photoGallery(), options)
     gallery.init()
@@ -288,3 +279,29 @@ ko.bindingHandlers.dynamicHtml = {
     ko.applyBindingsToDescendants(bindingContext, element)
   }
 }
+
+let routes = {}
+
+function route(path, templateId) {
+  routes[path] = { templateId: templateId }
+}
+
+route('/', 'home')
+route('/home', 'home')
+route('/welcome', 'welcome')
+route('/ourstory', 'ourstory')
+route('/weddingparty', 'weddingparty')
+route('/venues', 'venues')
+route('/accomodations', 'accomodations')
+route('/thingstodo', 'thingstodo')
+route('/registry', 'registry')
+route('/photos', 'photos')
+
+function router() {
+  let url = location.hash.slice(1).toLowerCase().replace(/%20/g, '') || '/'
+  let route = routes[url.toLowerCase()]
+  vm.handleNav(route.templateId)
+}
+
+window.addEventListener('hashchange', router)
+window.addEventListener('load', router)
