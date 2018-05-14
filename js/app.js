@@ -239,6 +239,8 @@ appViewModel = function () {
     target = target.toLowerCase().replace(/ /g, '')
     jQuery.get(`pages/${target}.html`).then(data => {
       self.content(data)
+      ga('set', 'page', `/${target}.html`)
+      ga('send', 'pageview')
       if (target === 'photos') {
         [].forEach.call(document.querySelectorAll('img[data-src]'), function (img) {
           img.setAttribute('src', img.getAttribute('data-src'))
