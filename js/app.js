@@ -239,8 +239,10 @@ appViewModel = function () {
     target = target.toLowerCase().replace(/ /g, '')
     jQuery.get(`pages/${target}.html`).then(data => {
       self.content(data)
-      ga('set', 'page', `/${target}.html`)
-      ga('send', 'pageview')
+      gtag('config', 'UA-112487378-1', {
+        'page_title': target,
+        'page_path': `/${target}.html`
+      })
       if (target === 'photos') {
         [].forEach.call(document.querySelectorAll('img[data-src]'), function (img) {
           img.setAttribute('src', img.getAttribute('data-src'))
