@@ -302,7 +302,7 @@ route('/registry', 'registry')
 route('/photos', 'photos')
 
 function router() {
-  let url = location.hash.slice(1).toLowerCase().replace(/%20/g, '') || '/'
+  let url = location.hash.slice(1).toLowerCase().replace(/%20/g, '').replace(/ /g, '') || '/'
   let route = routes[url.toLowerCase()]
   vm.handleNav(route.templateId)
 }
