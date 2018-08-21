@@ -186,6 +186,11 @@ appViewModel = function () {
       src: '/img/fb12.jpg',
       w: 1004,
       h: 1504
+    },
+    {
+      src: '/img/kissingface.jpg',
+      w: 555,
+      h: 555
     }
   ])
   self.bridalParty = ko.observableArray([
